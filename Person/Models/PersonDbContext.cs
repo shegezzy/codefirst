@@ -20,7 +20,7 @@ namespace Person.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=Persondb;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=Persondb;Trusted_Connection=True;TrustServerCertificate=true;");
             }
         }
         public DbSet<PostPerson> Person { get; set; }

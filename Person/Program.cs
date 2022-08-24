@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Globalization;
+using EntityFramework.Exceptions.Common;
 using Microsoft.Data.Sql;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -58,6 +59,10 @@ namespace Person
                 Console.WriteLine($"{noOfInserts} row Inserted Successful");
 
 
+            }
+            catch (UniqueConstraintException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             catch (SqlException ex)
             {
